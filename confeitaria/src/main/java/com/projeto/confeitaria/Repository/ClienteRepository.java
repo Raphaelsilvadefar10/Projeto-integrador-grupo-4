@@ -1,10 +1,9 @@
-package com.nete.repository;
+package com.projeto.confeitaria.repository;
 
-import com.nete.model.Cliente;
+import com.projeto.confeitaria.model.Cliente;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ClienteRepository extends JpaRepository<Cliente, Long> {
-
 }

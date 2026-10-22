@@ -1,14 +1,13 @@
-package com.nete.repository;
+package com.projeto.confeitaria.repository;
 
-import com.nete.model.Produto;
+import com.projeto.confeitaria.model.Produto;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
-public interface ProdutoRepository
-        extends JpaRepository<Produto, Long> {
+public interface ProdutoRepository extends JpaRepository<Produto, Long> {
 
     List<Produto> findByNomeContainingIgnoreCase(String nome);
 

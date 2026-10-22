@@ -1,4 +1,4 @@
-package com.nete.model;
+package com.projeto.confeitaria.model;
 
 import jakarta.persistence.*;
 

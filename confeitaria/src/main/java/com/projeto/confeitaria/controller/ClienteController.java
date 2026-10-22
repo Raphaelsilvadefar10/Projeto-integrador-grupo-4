@@ -1,7 +1,7 @@
-package com.nete.controller;
+package com.projeto.confeitaria.controller;
 
-import com.nete.model.Cliente;
-import com.nete.repository.ClienteRepository;
+import com.projeto.confeitaria.model.Cliente;
+import com.projeto.confeitaria.repository.ClienteRepository;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
