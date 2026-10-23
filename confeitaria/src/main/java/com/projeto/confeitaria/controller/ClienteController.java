@@ -3,6 +3,7 @@ package com.projeto.confeitaria.controller;
 import com.projeto.confeitaria.model.Cliente;
 import com.projeto.confeitaria.repository.ClienteRepository;
 
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -35,7 +36,7 @@ public class ClienteController {
 
     // Cadastrar cliente
     @PostMapping
-    public Cliente cadastrar(@RequestBody Cliente cliente) {
+    public Cliente cadastrar(@Valid @RequestBody Cliente cliente) {
         cliente.setId(null);
         return clienteRepository.save(cliente);
     }
@@ -44,7 +45,7 @@ public class ClienteController {
     @PutMapping("/{id}")
     public ResponseEntity<Cliente> atualizar(
             @PathVariable Long id,
-            @RequestBody Cliente dados) {
+            @Valid @RequestBody Cliente dados) {
 
         return clienteRepository.findById(id)
                 .map(cliente -> {

@@ -1,6 +1,10 @@
 package com.projeto.confeitaria.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.DecimalMin;
+import jakarta.validation.constraints.Digits;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
 @Entity
@@ -19,9 +23,14 @@ public class ItemPedido {
     @JoinColumn(name = "produto_id", nullable = false)
     private Produto produto;
 
+    @NotNull
+    @Min(1)
     @Column(nullable = false)
     private Integer quantidade;
 
+    @NotNull
+    @DecimalMin("0.00")
+    @Digits(integer = 8, fraction = 2)
     @Column(nullable = false, precision = 10, scale = 2)
     private BigDecimal precoUnitario;
 

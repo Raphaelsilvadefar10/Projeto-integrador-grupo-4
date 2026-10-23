@@ -3,6 +3,7 @@ package com.projeto.confeitaria.controller;
 import com.projeto.confeitaria.model.Produto;
 import com.projeto.confeitaria.repository.ProdutoRepository;
 
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -37,7 +38,7 @@ public class ProdutoController {
 
     // Cadastrar produto
     @PostMapping
-    public Produto cadastrar(@RequestBody Produto produto) {
+    public Produto cadastrar(@Valid @RequestBody Produto produto) {
         produto.setId(null);
         return produtoRepository.save(produto);
     }
@@ -46,7 +47,7 @@ public class ProdutoController {
     @PutMapping("/{id}")
     public ResponseEntity<Produto> atualizar(
             @PathVariable Long id,
-            @RequestBody Produto dados) {
+            @Valid @RequestBody Produto dados) {
 
         return produtoRepository.findById(id)
                 .map(produto -> {

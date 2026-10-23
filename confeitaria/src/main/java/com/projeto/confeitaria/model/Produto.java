@@ -1,6 +1,12 @@
 package com.projeto.confeitaria.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.DecimalMin;
+import jakarta.validation.constraints.Digits;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+import java.math.BigDecimal;
 
 @Entity
 @Table(name = "produtos")
@@ -10,15 +16,23 @@ public class Produto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank
+    @Size(max = 100)
     @Column(nullable = false, length = 100)
     private String nome;
 
+    @Size(max = 255)
     @Column(length = 255)
     private String descricao;
 
-    @Column(nullable = false)
-    private Double preco;
+    @NotNull
+    @DecimalMin("0.01")
+    @Digits(integer = 8, fraction = 2)
+    @Column(nullable = false, precision = 10, scale = 2)
+    private BigDecimal preco;
 
+    @NotBlank
+    @Size(max = 50)
     @Column(nullable = false, length = 50)
     private String categoria;
 
@@ -28,7 +42,7 @@ public class Produto {
     }
 
     public Produto(Long id, String nome, String descricao,
-                   Double preco, String categoria, String imagem) {
+                   BigDecimal preco, String categoria, String imagem) {
         this.id = id;
         this.nome = nome;
         this.descricao = descricao;
@@ -61,11 +75,11 @@ public class Produto {
         this.descricao = descricao;
     }
 
-    public Double getPreco() {
+    public BigDecimal getPreco() {
         return preco;
     }
 
-    public void setPreco(Double preco) {
+    public void setPreco(BigDecimal preco) {
         this.preco = preco;
     }
 

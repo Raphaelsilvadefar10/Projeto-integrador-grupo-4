@@ -1,6 +1,9 @@
 package com.projeto.confeitaria.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name = "clientes")
@@ -10,15 +13,22 @@ public class Cliente {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank
+    @Size(max = 100)
     @Column(nullable = false, length = 100)
     private String nome;
 
+    @Email
+    @Size(max = 100)
     @Column(length = 100)
     private String email;
 
+    @NotBlank
+    @Size(max = 20)
     @Column(nullable = false, length = 20)
     private String telefone;
 
+    @Size(max = 200)
     @Column(length = 200)
     private String endereco;
 
