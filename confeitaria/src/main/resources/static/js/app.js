@@ -2,7 +2,7 @@
   "use strict";
 
   const whatsappNumber = "5513988164257";
-  const instagramUrl = "https://www.instagram.com/netedocesesalgadosgja/";
+  const instagramUrl = "https://www.instagram.com/netedocessalgadosgja/";
   const defaultMessage = "Olá, Nete! Gostaria de saber mais sobre os doces e salgados.";
 
   document.querySelectorAll("a[data-whatsapp]").forEach((link) => {
